@@ -122,7 +122,7 @@ training = training.merge(train_labels, on = 'customer_ID', how = 'left')
 ## Exporting the resulting training data-frame to the S3 Bucket
 training.to_csv('amex_train_data_balance.csv', index = False)
 
-sess.upload_data(path = 'amex_train_data_balance.csv', bucket = bucket_name, key_prefix = '')
+sess.upload_data(path = 'amex_train_data_balance.csv', bucket = bucket_name, key_prefix = 'Kaggle-American-Express-Default')
 
 ## Sanity check
 print('-- Training data-frame complete -- \n')
