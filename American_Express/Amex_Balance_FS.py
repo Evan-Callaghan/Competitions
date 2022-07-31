@@ -78,7 +78,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.3, strat
 ## Defining empty list to store results
 features_to_select = list()
 
-## Repeating RFECV steps 10 times:
+## Repeating RFE steps 25 times:
 for i in tqdm(range(0, 25)):
     
     ## Runing RFECV with Random Forest as a base algorithm
