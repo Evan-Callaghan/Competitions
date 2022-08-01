@@ -19,13 +19,20 @@ bucket_name = 'evan-callaghan-bucket'
 bucket = s3.Bucket(bucket_name)
 
 file_key = 'Kaggle-American-Express-Default/amex_train_data_balance.csv'
+file_key2 = 'Kaggle-American-Express-Default/amex_test_data.csv'
 
 bucket_object = bucket.Object(file_key)
+bucket_object2 = bucket.Object(file_key2)
+
 file_object = bucket_object.get()
+file_object2 = bucket_object2.get()
+
 file_content_stream = file_object.get('Body')
+file_content_stream2 = file_object2.get('Body')
 
 ## Reading the data
-data = pd.read_csv(file_content_stream)
+train = pd.read_csv(file_content_stream)
+test = pd.read_csv(file_content_stream2)
 
 ## Sanity check
 print('-- Data Read -- \n')
